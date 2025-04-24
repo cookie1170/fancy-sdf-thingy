@@ -1,18 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://chqv67l4gnyq0"]
+[gd_scene load_steps=6 format=3 uid="uid://chqv67l4gnyq0"]
 
 [ext_resource type="Shader" uid="uid://chifm35qx6xv5" path="res://screen_shader.gdshader" id="1_h2yge"]
 [ext_resource type="Script" uid="uid://dj8stq4ovgpht" path="res://screen.gd" id="2_1bvp3"]
 [ext_resource type="Script" uid="uid://c76jxbt5ln1fx" path="res://shape.gd" id="3_lquwl"]
+[ext_resource type="Texture2D" uid="uid://cwnhpkr2truuq" path="res://icon.svg" id="4_1bvp3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0e48y"]
 shader = ExtResource("1_h2yge")
 shader_parameter/bg_color = Color(1, 1, 1, 0)
 shader_parameter/resolution = Vector2(1152, 648)
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 4.0
 shader_parameter/smoothing_amount = 40.0
 shader_parameter/shape_indices = PackedInt32Array(0, 1, 2)
 shader_parameter/shape_sizes = PackedFloat32Array(32, 32, 32)
-shader_parameter/positions = Array[Vector2]([Vector2(164, 449), Vector2(292, 267), Vector2(486, 319)])
-shader_parameter/colors = PackedColorArray(1, 0.46, 0.46, 1, 0.49, 1, 0.49, 1, 0.39, 0.39, 1, 1)
+shader_parameter/positions = Array[Vector2]([Vector2(598, 233), Vector2(244, 411), Vector2(624, 474)])
+shader_parameter/shape_colors = PackedColorArray(1, 0.5, 0.5, 0.247059, 0.5, 1, 0.5, 0.498039, 0.5, 0.5, 1, 1)
 
 [node name="Main" type="Node2D"]
 metadata/_edit_lock_ = true
@@ -32,18 +35,23 @@ metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
 [node name="ShapeOne" type="Marker2D" parent="." node_paths=PackedStringArray("color_rect")]
-position = Vector2(164, 449)
+position = Vector2(598, 233)
 script = ExtResource("3_lquwl")
 color_rect = NodePath("../CanvasLayer/ColorRect")
 
 [node name="ShapeTwo" type="Marker2D" parent="." node_paths=PackedStringArray("color_rect")]
-position = Vector2(292, 267)
+position = Vector2(244, 411)
 script = ExtResource("3_lquwl")
 index = 1
 color_rect = NodePath("../CanvasLayer/ColorRect")
 
 [node name="ShapeThree" type="Marker2D" parent="." node_paths=PackedStringArray("color_rect")]
-position = Vector2(486, 319)
+position = Vector2(624, 474)
 script = ExtResource("3_lquwl")
 index = 2
 color_rect = NodePath("../CanvasLayer/ColorRect")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(617, 472)
+texture = ExtResource("4_1bvp3")
+metadata/_edit_lock_ = true
